@@ -1,0 +1,86 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  @apply bg-gray-50 text-gray-900;
+}
+
+@layer utilities {
+  /* Custom scrollbar styles for tablet view */
+  .scrollbar-thin {
+    scrollbar-width: thin;
+  }
+  
+  .scrollbar-track-gray-100 {
+    scrollbar-color: #e5e7eb transparent;
+  }
+  
+  .scrollbar-thumb-gray-300::-webkit-scrollbar {
+    height: 8px;
+  }
+  
+  .scrollbar-thumb-gray-300::-webkit-scrollbar-track {
+    background: #f3f4f6;
+    border-radius: 4px;
+  }
+  
+  .scrollbar-thumb-gray-300::-webkit-scrollbar-thumb {
+    background: #d1d5db;
+    border-radius: 4px;
+  }
+  
+  .scrollbar-thumb-gray-300::-webkit-scrollbar-thumb:hover {
+    background: #9ca3af;
+  }
+
+  /* Smooth scrolling for tablet view */
+  .snap-x {
+    scroll-behavior: smooth;
+  }
+  
+  /* Hide scrollbar on mobile for cleaner look */
+  @media (max-width: 639px) {
+    .overflow-x-auto::-webkit-scrollbar {
+      display: none;
+    }
+    
+    .overflow-x-auto {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+  }
+
+  /* Details view animations */
+  .details-slide-enter {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  
+  .details-slide-enter-active {
+    opacity: 1;
+    transform: translateX(0);
+    transition: all 0.3s ease-out;
+  }
+  
+  .details-slide-exit {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  
+  .details-slide-exit-active {
+    opacity: 0;
+    transform: translateX(100%);
+    transition: all 0.3s ease-out;
+  }
+
+  /* Bottom sheet animations */
+  .bottom-sheet-backdrop {
+    transition: opacity 0.3s ease-out;
+  }
+  
+  .bottom-sheet-content {
+    transition: transform 0.3s ease-out;
+  }
+}
